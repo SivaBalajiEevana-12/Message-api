@@ -1,6 +1,14 @@
 const express = require('express');
 const gupshup = require('@api/gupshup')
+const cors = require('cors');
 const app =express();
+app.use(cors(
+{
+  origin: '*', // Allow all origins, you can specify a specific origin if needed
+  methods: ['GET', 'POST'], // Allow specific HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'] // Allow specific headers
+}));
+// ))
 app.use(express.json());
 app.get('/siva',(req,res)=>{
  const phoneNumber = req.query.phoneNumber;
